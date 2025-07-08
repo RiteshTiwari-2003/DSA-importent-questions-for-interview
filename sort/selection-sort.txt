@@ -1,0 +1,105 @@
+//  Selection sort brute force approach in java //
+
+public class SelectionSortBrute{
+    public static void selectionsort(int[] arr){
+        int n=arr.lenght;
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                if(arr[j]<arr[i]){
+                    int temp=arr[j];
+                    arr[j]=arr[i]
+                    arr[i]=temp                }
+            }
+        }
+    }
+    public static void main(String[] args){
+        int[] arr={64,25,12,78,23};
+        selectionSort(arr);
+        for(int val:arr){
+            System.out.print(val+'');
+        }
+    }
+}
+
+// brute force approach in python 
+def selectionSort(arr):
+    n=len(arr)
+    for i in range(n):
+        for j in range(i+1,n):
+            if arr[j]<arr[i]:
+                arr[i],arr[j]=arr[j],arr[i]
+    return arr
+arr = [64, 25, 12, 22, 11]
+print("Sorted:", selection_sort_brute(arr))
+
+2. better approach:
+// in java 
+public class selectionSort:
+    public static void selectionSort(int[] arr){
+        int n=arr.lenght;
+        for(int i=0;i<n;i++){
+            int minidx=i;
+            for(int j=i+1;j<n;j++){
+                if (arr[j]<arr[i]){
+                    minidx=j
+                }
+            }
+            int temp=arr[minidx]
+            arr[minidx]=arr[i]
+            arr[i]=temp
+        }
+    }
+    public static void main(String[] args){
+        int[] arr={64,25,12,22,11};
+        selectionSort(arr)
+        for(int vsl:arr){
+            System.out.print(val+"");
+        }
+    }
+// in python 
+def Selection-sort(arr):
+    n=len(arr)
+    for i in range(n):
+        min_idx=i
+        for j in range(i+1,n):
+            if(arr[j]<arr[min_idx]):
+                min_idx=j
+        arr[i],arr[min_idx]=arr[min_idx],arr[i]
+    return arr
+arr=[64,50,98,100,23,34]
+print("Sorted:", selection_sort_brute(arr))
+
+3. optimal approach in this we should skip that iteration in which min number already in correct place 
+
+public class SelectionSortOptimal{
+    public static void selectionSort(int[] arr){
+        int n=arr.lenght;
+        for(int i=0;i<n;i++){
+            int min_idx=i;
+            boolean isSorted=true;
+            for(int j=i+1;j<n;j++){
+                if(arr[j]<arr[min_idx]){
+                    min_idx=j;
+                }
+                if(j>i && arr[j]<arr[j-1]){
+                    isSorted=false;
+                }
+            }
+            if(isSorted){
+                break;
+            }
+            if(min_idx!=i){
+                int temp=arr[i];
+                arr[i]=arr[min_idx];
+                arr[min_idx]=temp;
+            }
+        }
+    }
+    public static void main(String[] args){
+        int[] arr={64,25,12,22,89};
+        selectionSort(arr);
+        for(int val:arr){
+            Syste.out.println(val+'');
+        }
+    }
+}

@@ -1,0 +1,193 @@
+### largest element in the array 
+1. brute force approach python 
+def largest_brute_force(arr):
+    for i in rnage(len(arr)):
+        is_largest=True
+        for j in range(len(arr)):
+            if arr[j]>arr[i]:
+                is_largest=False
+                break
+        if is_largest:
+            return arr[i]
+
+arr = [10, 34, 2, 90, 56]
+print("Largest:", largest_brute(arr))
+
+in java brute force approach :
+public class LargestBrute{
+        public static int findLargest(int[] arr){
+            for(int i=0;i<arr.length;i++){
+                boolean is_largest=true;
+                for(int j=0;j<arr.length;j++){
+                    if(arr[j]>arr[i]){
+                        is_largest=false;
+                        break;
+                    }
+                }
+                if(is_largest){
+                    return arr[i];
+                }
+            }
+            return -1;
+        }
+        public static void main(String[] args){
+            int[] arr = {10, 34, 2, 90, 56};
+        System.out.println("Largest: " + findLargest(arr));
+        }
+}
+
+2.. better approach in python 
+def largest_better(arr):
+    arr.sort()
+    return arr[-1]
+
+arr = [10, 34, 2, 90, 56]
+print("Largest:", largest_better(arr))
+
+better approach in java
+import java.util.Arrays; 
+public class LargestBtter{
+    public static int findLargest(int[] arr){
+        Arrays.sort(arr);
+        return arr[arr.length-1];
+    }
+    public static void main(String[] args) {
+        int[] arr = {10, 34, 2, 90, 56};
+        System.out.println("Largest: " + findLargest(arr));
+    }
+
+
+}
+
+3. optimal approach i python 
+def largest_optimal(arr):
+    max_val=arr[0]
+    for num in arr:
+        if num>max_val:
+            max_val=num
+
+    return max_val
+arr = [10, 34, 2, 90, 56]
+print("Largest:", largest_optimal(arr))
+
+optimal approach in java 
+public class OptimaLarget{
+    public static int findLargest(int[] arr){
+        int max=arr[0];
+        for (int num:arr){
+            if(num>max){
+                max=num;
+            }
+        }
+        return max;
+    }
+    public static void main(String[] args) {
+        int[] arr = {10, 34, 2, 90, 56};
+        System.out.println("Largest: " + findLargest(arr));
+    }
+}
+
+#### second largest element 
+brute force approach in python 
+def second_largest_brute(arr):
+    n=len(arr)
+    for i in range(n):
+        greater=0
+        for j in range(n):
+            if arr[j]>arr[i]:
+                greater+=1
+        ig greater==1:
+            return arr[i]
+    return None
+arr = [10, 20, 4, 45, 99, 99]
+print("Second Largest:", second_largest_brute(arr))
+
+brute force approach in java 
+public class BruteForceSecondLargest{
+    public static Integer findSecondlargest(int[] arr){
+        int n=arr.length;
+        for(int i=0;i<n;i++){
+            int greater=0;
+            for(int j=0;j<n;j++){
+                if(arr[j]>arr[i]){
+                    greater++;
+                }
+            }
+            if(greater==1) return arr[i];
+        }
+        return null;
+    }
+    public static void main(String[] args) {
+        int[] arr = {10, 20, 4, 45, 99, 99};
+        System.out.println("Second Largest: " + findSecondLargest(arr));
+    }
+}
+
+better approach python 
+def second_largest_better(arr):
+    arr = sorted(set(arr))  # remove duplicates and sort
+    if len(arr) >= 2:
+        return arr[-2]
+    return None
+
+arr = [10, 20, 4, 45, 99, 99]
+print("Second Largest:", second_largest_better(arr))
+
+better approach in java 
+import java.util.*;
+public class SecondLargestBetter{
+    public static Integer findSecondLargest(int[] arr){
+        TreeSet<Integer> set=new TreeSet<>();
+        for(int num:arr){
+            set.add(num);
+        }
+        if set.size()<2{
+            return null;
+        }
+        set.pollLast();//remove last element
+        return set.last();
+    }
+    public static void main(String[] args) {
+        int[] arr = {10, 20, 4, 45, 99, 99};
+        System.out.println("Second Largest: " + findSecondLargest(arr));
+    }
+}
+
+optimal approach  
+python 
+def second-largest-elemet(arr):
+    if len(arr)<2:
+        return None
+    first=second=float('-inf')
+    for num in arr:
+        if num>first:
+            second=first
+            first=num
+        elif num>second and num!=first:
+            second =num
+    return second if second != float('-inf') else None
+arr = [10, 20, 4, 45, 99, 99]
+print("Second Largest:", second_largest_optimal(arr))
+
+optimal appproach in java 
+public class SecondLargestElement{
+    public static Integer findSecondLargest(int [] arr){
+        if(arr.length<2)return null;
+        int first=Integer.MIN_VALUE;
+        int second=Integer.MIN_VALUE;
+        for (int num:arr){
+            if(num>first){
+                second=first;
+                first=num;
+            }
+            else if(num>second && num!=first){
+                second=num;
+            }
+        }
+        return second==Integer.MIN_VALUE ? null: second;
+    }
+    public static void main(String[] args){
+        int[] arr={10,20, 4,45,99,99};
+        System.out.println("SEcond Largest:"+findSecondLargest(arr));
+    }
+}

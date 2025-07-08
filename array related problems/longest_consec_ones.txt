@@ -1,0 +1,72 @@
+#### longest consicutive one's brute force approach 
+in python 
+def longest_ones_brute(arr):
+    max_len=0
+    for i in range(len(arr)):
+        count=0
+        for j in range(i, len(arr)):
+            if arr[j]==1:
+                conut+=1
+                max_len=max(max_len,count)
+            else:
+                break 
+    return max_len
+in java 
+public class LongestConsicutiveOnesBrute{
+    public static int longestOnes(int[] arr){
+        int maxLen=0;
+        for(int i=0;i<arr.length;i++){
+            int count=0;
+            for(int j=i;j<arr.length;j++){
+                if(arr[j]==1){
+                    count++;
+
+                }
+                else{
+                    break;
+                }
+            }
+            maxLen=Math.max(maxLen,count);
+        }
+        return maxLen;
+    }
+    public static void main(String[] args){
+        int[] arr={1,1,0,1,1,1};
+        System.out.println("Brute force approach:"+longestOnes(arr));    }
+}
+
+2. better appproach 
+python 
+def longest_one_before(arr):
+    max_len=0
+    count=0
+    for num in arr:
+        if num==1:
+            count+=1
+            max_len=max(max_len,count)
+        else:
+            count=0
+    return max_len
+
+arr = [1, 1, 0, 1, 1, 1]
+print("Better Approach:", longest_ones_better(arr))  # Output: 3
+
+public class LongestConsicutiveOne{
+    public static int longestOne(int[] arr){
+        int maxLen=0,count=0;
+        for(int num:arr){
+            if(num==1){
+                count++;
+                maxLen=Math.max(maxlen,count);
+            }
+            else{
+                count=0;
+            }
+        }
+        return maxLen;
+    }
+    public static void main(String[] args) {
+        int[] arr = {1, 1, 0, 1, 1, 1};
+        System.out.println("Better Approach: " + longestOnes(arr));  // Output: 3
+    }
+}

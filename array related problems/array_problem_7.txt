@@ -1,0 +1,91 @@
+### find the number that apperas ones and other twice in the array 
+1. brute force approach 
+def find_brute-force(arr):
+    for in in rahe(len(arr)):
+        count=0
+        dor j in range(len(arr)):
+            if arr[i]==arr[j]:
+                count+=1
+        if count ==1:
+            return arr[i]
+arr = [2, 3, 5, 4, 5, 3, 4]
+print("Brute Force:", find_once_brute(arr))  # Output: 2
+
+
+in java 
+public class FindSingleBrute{
+    public static int findOnce(int[] arr){
+        for(int i=0;i<arr.length;i++){
+            int count=0;
+            for(int j=0;j<arr.length;j++){
+                if(arr[i]==arr[j]){
+                    count++;
+                }
+            }
+            if (count ==1){
+                return arr[i];
+            }
+        }
+        return -1;
+    }
+    public static void main(String[] args){
+        int[] arr={2,3,5,4,5,3,4};
+        System.out.println("Brute force approach:"+findOne(arr));
+    }
+}
+
+better approach using hashing or dictionary
+def find_one_better(arr):
+    freq={}
+    for num in arr:
+        freq[num]=frq.get(num,0)+1
+    for num in freq:
+        if freq[num]==1:
+            return num
+arr = [2, 3, 5, 4, 5, 3, 4]
+print("Better:", find_once_better(arr))  # Output: 2
+
+java 
+import java.util.*;
+public class FindSingleOne{
+    public static int findOnes(int[] arr){
+        Map<Integer,Integer> freq=new HashMap<>();
+        for (int num:arr){
+            freq.put(num, freq.getOrDefault(num,0)+1);
+        }
+        for(Map.Entry<Integer,Integer> entry:freq.entrySet()){
+            if (entry.getValue()==1){
+                return entry.getKey();
+            }
+        }
+        return -1;
+    }\public static void main(String[] args){
+        int[] arr={2,3,5,4,5,3,4};
+        System.out.println("Better:"+findOne(arr));
+    }
+}
+
+optimal approach using xor 
+python 
+def find_one-optimal(arr):
+    result=0
+    for num in arr:
+        result^=num
+    return result
+arr=[2,3,5,4,5,3,4]
+print("Optimal approach:",find_one_optima(arr))
+
+java optimal :
+public class FindSingleOptimal{
+    public static int findone(int[] arr){
+        int result=0;
+        for(int num:arr){
+            result^=num;
+        }
+        return result;
+    }
+    public static void main(String[] args) {
+        int[] arr = {2, 3, 5, 4, 5, 3, 4};
+        System.out.println("Optimal (XOR): " + findOnce(arr));  // Output: 2
+    }
+}

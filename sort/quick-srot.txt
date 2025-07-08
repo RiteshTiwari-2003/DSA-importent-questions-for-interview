@@ -1,0 +1,89 @@
+#### brite force approach in python 
+def quick_sort_brute(arr):
+    if len(arr)<=1:
+        return arr
+    pivot=arr[0]
+    left=[x for x in arr[1:] if x<pivot]
+    right=[x for x in arr[1:] if x>=pivot]
+    return quick_sort_brute(left) + pivot + quick-sort_brute(right)
+arr = [10, 7, 8, 9, 1, 5]
+print("Sorted:", quick_sort_brute(arr))
+
+brute force approach in java 
+import java.util.*;
+public class QuickSortBrute{
+    public static List<Integer> quickSort(List<integer> arr){
+        if(arr.size<=1){
+            return arr;
+        }
+        int pivot=arr.get(0);
+        List<Integr> left=new ArrayList<>();
+        List<Integer> right=new ArrrayList<>();
+        for(int i=1;i<arr.size();i++){
+            if(arr.get(i)<pivot) left.add(arr.get(i));
+            else right.add(arr.get(i));
+        }
+        List<Intger> result=new ArrayList<>(qauickSort(left));
+        result.add(pivot);
+        result.addAll(quickSort(right));
+        return result;
+    }
+    public static void main(String[] args){
+        List<Integer> arr=Arrays.asList(10,7,8,4,5,3);
+         System.out.println("Sorted: " + quickSort(arr));
+    }
+}
+
+2. better approach 
+python 
+def quick_sort_better(arr,low,high):
+    if low<high:
+        pi=partition(arr,low,high)
+        qucik_sort_better(arr,low,pi-1)
+        quick-sort_better(arr,pi+1,high)
+def partition(arr,low,high):
+    pivot=arr[high]
+    i=low-1
+    for j in range(low,high):
+        if arr[j]<=pivot:
+            i+=1
+            arr[i],arr[j]=arr[j],arr[i]
+    arr[i+1],arr[high]=arr[high],arr[i+1]
+    return i+1
+arr = [10, 7, 8, 9, 1, 5]
+quick_sort_better(arr, 0, len(arr) - 1)
+print("Sorted:", arr)
+
+btter approach java 
+import java.util.*;
+public class quickbetter{
+        public static void qauickSort(int[] arr,int low, int high){
+            if(low<high){
+                int pi=partition(arr,low,high)
+                quickSort(arr,low,pi-1);
+                quickSort(arr,pi+1,high);
+            }
+        }
+        public static int partition(int [] arr, int low, int high){
+            int pivot=arr[high],i=low-1;
+            for (int j=low;j<high;j++){
+                if(arr[j]<=pivot){
+                    i++;
+                    int temp=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=temp;
+                }
+            }
+            int temp=arr[i+1];
+            arr[i+1]=arr[high];
+            arr[high]=temp;
+            return i+1;
+        }
+        public static void main(String[] args) {
+        int[] arr = {10, 7, 8, 9, 1, 5};
+        quickSort(arr, 0, arr.length - 1);
+        System.out.println("Sorted: " + Arrays.toString(arr));
+    }
+}
+
+3. optimal approach in python 

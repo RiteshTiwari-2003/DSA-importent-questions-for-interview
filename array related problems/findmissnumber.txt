@@ -1,0 +1,131 @@
+### finding missing number in the array 
+brute force approach in python
+
+def find-miss_brute(arr):
+    n=len(arr)
+    for num in range(1,n+2):
+        if num not in arr:
+            return num
+arr = [1, 2, 4, 5, 6]
+print("Brute Missing:", find_missing_brute(arr))
+
+java brute force approach 
+import java.util.*;
+public class MissingNumber{
+    public static int findMissing(int[] arr){
+        int n=arr.length;
+        for(int i=1;i<=n+1;i++)[
+            boolean found=false;
+            for(int val:arr){
+                if(val==i){
+                    found=true;
+                    break;
+                }
+            }
+            if(!found){
+                return i;
+            }
+        ]
+        return -1;
+    }
+     public static void main(String[] args) {
+        int[] arr = {1, 2, 4, 5, 6};
+        System.out.println("Brute Missing: " + findMissing(arr));
+    }
+}
+
+better approach in python using hash map hasing 
+def missing_number_better(arr):
+    n=len(arr)
+    present=[False]*(n+2)
+    for num in arr:
+        present[num]=True
+    for i in range(1,n+2):
+        if not present[i];
+            return i
+arr = [1, 2, 4, 5, 6]
+print("Better Missing:", find_missing_better(arr))
+
+java better approach 
+import java.util.*;
+public class MissingNumber{
+    publis static int findMissing(int[] arr)[
+        int n=arr.length;
+        boolean[] seen=new boolean[n+2];
+        for(int num:arr){
+            seen[num]=true;
+        }
+        for(int i=1;i<=n+1;i++){
+            if(!seen[i]){
+                return i;
+            }
+        }
+        return -1;
+    ]
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 4, 5, 6};
+        System.out.println("Better Missing: " + findMissing(arr));
+    }
+
+}
+
+3. optimal approach in python 
+def find_optimal_soution(arr):
+    n=len(arr)
+    total=(n+1)*(n+2)//2
+    actual_sum=sum(arr)
+    return total-actual_sum
+arr = [1, 2, 4, 5, 6]
+print("Optimal Missing:", find_missing_optimal(arr))
+
+optimal solution in java 
+public class optimalsoutionJava{
+    public static int findMissing(int[] arr){
+        int n=arr.length;
+        int expectedSum=(n+1)*(n+2)//2;
+        int actualSum=0;
+        for(int num:arr){
+            actualSum+=num;
+        }
+        return expectedSum-actualSum;
+    }
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 4, 5, 6};
+        System.out.println("Optimal Missing: " + findMissing(arr));
+    }
+}
+
+optimal 2 approach one more approach to do above probem with the hrp of xor 
+in python 
+def find_missing_xor(arr):
+    n=len(arr)
+    xor1=0
+    xor2=0
+    for i in range(1,n+2):
+        xor1^=i
+    for num in arr:
+        xor2^=num
+    return xor1^xor2
+# Test
+arr = [1, 2, 4, 5, 6]
+print("Missing (XOR):", find_missing_xor(arr)) 
+
+in java 
+public class MissingNumberXor{
+    public static int findMissing(int[] arr){
+        int n=arr.length;
+        int xor1=0,xor2=0;
+        for(int i=1;i<=n+1;i++){
+            xor1^=i;
+        }
+        for(int num:arr){
+            xor2^=num;
+
+        }
+        return xor1^xor2;
+    }
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 4, 5, 6};
+        System.out.println("Missing (XOR): " + findMissing(arr));  // Output: 3
+    }
+}

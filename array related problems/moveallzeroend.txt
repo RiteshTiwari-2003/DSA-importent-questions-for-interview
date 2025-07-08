@@ -1,0 +1,79 @@
+### problem is a array is given i want that in array all zero move at the end 
+brute force approach 
+in python 
+def move_zero_brute(arr):
+    n=len(arr)
+    temp=[]
+    for num in arr:
+        if num!=0:
+            temp.append(num)
+    while len(temp)<n:
+        temp.append(0)
+    for i in range(n):
+        arr[i]=temp[i]
+    return arr
+arr[1,0,9,8,0,3]
+print("brute approach",move_zero_brute(arr))
+
+brute force approach in java 
+import java.util.*;
+public class movezerobrute{
+    public static void moveZeros(int[] arr){
+        int n=arr.length;
+        int[] temp=new int[n];
+        int idx=0;
+        for(int num:arr){
+            if(num!=0)temp[idx++]=num;
+        }
+        for (int i=0;i<n;i++){
+            arr[i]=temp[i];
+        }
+    }
+    public static void main(String[] args){
+        int[] arr={0,1,0,3,12};
+        moveZeros(arr);
+        System.out.println("Brute:"+Arrays.toString(arr));
+    }
+}
+
+2. better approach in python 
+def move_zero_better(arr):
+    n=len(arr)
+    index=0
+    for i in range(n):
+        if arr[i]!=0:
+            arr[index]=arr[i]
+            index+=1
+    while(index<n):
+        arr[index]=0
+        index+=1
+    return arr
+arr = [0, 1, 0, 3, 12]
+print("Better:", move_zeros_better(arr))
+
+better approach in java 
+import java.util.*;
+public class movezerobeeter{
+    public static void moveZero(int[] arr){
+        int index=0;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]!=0){
+                arr[index++]=arr[i];
+            }
+        }
+        while(index<arr.length){
+            arr[index++]=0;
+        }
+    }
+    public static void main(String[] args){
+        int[] arr={0,1,0,3,12};
+        moveZeroArr(arr);
+        System.out.println("Better: " + Arrays.toString(arr));
+    }
+}
+
+3. optimal approach 
+like find first zero number in array and start form there take two pointer approach like take to variable i and j and put both at the same place 
+which is first zero 's index and iterate j on each index and where first non zero come after first zero swap arr[i] and arr[j]
+and also done i++ and j++ and again iterate j and where second non zero come stop j on this and swap arr[i] and arr[j] and i++ and j++
+and like this repeat thing and when j or i any one cross the last index of array stop there 

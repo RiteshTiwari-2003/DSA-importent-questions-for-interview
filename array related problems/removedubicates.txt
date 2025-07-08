@@ -1,0 +1,236 @@
+#### 1 brute force approach in python 
+def remove_dublicate_element(arr):
+    n=len(arr)
+    if n==0:
+        return 0
+    temp=[]
+    for i in range(n):
+        if i==0 or arr[i]!=arr[i-1]:
+            temp.append(arr[i])
+    for i in range(len(temp)):
+        arr[i]=temp=[i]
+    return len(temp)
+arr = [1, 1, 2, 2, 3, 3, 3, 4]
+new_len = remove_duplicates_brute(arr)
+print("New Length:", new_len)
+print("Array:", arr[:new_len])
+
+brute force aqpproach in java 
+public class removedublicatebrue{
+    public static int removeDubicate(int[] arr){
+        int n=arr.length;
+        if(n==0){
+            return 0;
+        }
+        int[] temp=new int[n];
+        int j=0;
+        for(int i=0;i<n;i++){
+            if(i==0 || arr[i]!=arr[i-1]){
+                temp[j++]=arr[i];
+            }
+        }
+        for(int i=0;i<j;i++){
+            arr[i]=temp[i];
+        }
+        return j;
+    }
+    public static void main(String[] args) {
+        int[] arr = {1, 1, 2, 2, 3, 3, 3, 4};
+        int len = removeDuplicates(arr);
+        System.out.println("New Length: " + len);
+        for (int i = 0; i < len; i++) System.out.print(arr[i] + " ");
+    }
+}
+
+2.   better approach in python 
+def remove_duplicate_better(arr):
+    unique=sorted(set(arr))
+    for i in range(len(unique)):
+        arr[i]=unique[i]
+    return len(unique)
+arr = [1, 1, 2, 2, 3, 3, 3, 4]
+new_len = remove_duplicates_better(arr)
+print("New Length:", new_len)
+print("Array:", arr[:new_len])
+
+better approach in java 
+
+import java.util.*;
+public class removeDublicateArrray{
+    public static int removeDublicateElement(int[] arr){
+        Set<Integer> set=new LinkedHashSet<>();
+        for(int num:arr){
+            set.add(num);
+        }
+        int i=0;
+        for(int num:set){
+            arr[i++]=num;
+        }
+        return set.size();
+    }
+    public static void main(String[] args) {
+        int[] arr = {1, 1, 2, 2, 3, 3, 3, 4};
+        int len = removeDuplicates(arr);
+        System.out.println("New Length: " + len);
+        for (int i = 0; i < len; i++) System.out.print(arr[i] + " ");
+    }
+}
+
+3.. optimal approach in python :
+def remove_dublicate_optima(arr):
+    if not arr:
+        return 0
+    i=0
+    for j in range(1,len(arr)):
+        if arr[j]!=arr[i]:
+            i+=1
+            arr[i]=arr[j]
+    return i+1
+arr = [1, 1, 2, 2, 3, 3, 3, 4]
+new_len = remove_duplicates_optimal(arr)
+print("New Length:", new_len)
+print("Array:", arr[:new_len])
+
+#### java optimal approach 
+public class RemoveDublicateOptimal{
+    public static int removeDublicate(int[] arr){
+        if(arr.length==0){
+            return 0;
+        }
+        int i=0;
+        for(int j=1;j<n;j++){
+            if(arr[j]!=arr[i]){
+                i++;
+                arr[i]=arr[j];
+            }
+        }
+        return i+1;
+
+    }
+    public static void main(String[] args){
+        int[] arr = {1, 1, 2, 2, 3, 3, 3, 4};
+        int len = removeDuplicates(arr);
+        System.out.println("New Length: " + len);
+        for (int i = 0; i < len; i++) System.out.print(arr[i] + " ");
+    }
+}
+
+2. sift the element one place left in the array
+temp=arr[0]
+for (in ti=1;i<n;i++){
+    arr[i-1]=arr[i]
+}
+arr[n-1]=temp;
+
+3. sift (left sift) array element till k places 
+brute force approach 
+python 
+def rotate_brute(arr,k):
+    n=len(arr)
+    k=k%n
+    for _ in range(k):
+        first=arr[0]
+        for i in range(1,n):
+            arr[i-1]=arr[i]
+        arr[-1]=first
+    return arr
+arr = [1, 2, 3, 4, 5]
+print("Brute Force Left Rotated:", left_rotate_brute(arr, 2))
+
+java brute force approach 
+import java.util.*;
+public class RotateKPlacebrute{
+    public static void rotateLeft(int[] arr){
+        int n=arr.length;
+        k=k%n;
+        for(int r=0;r<k;r++){
+            int first=arr[0];
+            for(int i=1;i<n;i++){
+                arr[i-1]=arr[i]
+            }
+            arr[-1]=first;
+        }
+    }
+    public static void main(String[] args){
+        int[] arr={1,2,3,4,5};
+        rotateLeft(arr,2);
+        System.out.println("Brute Force Left Rotated: " + Arrays.toString(arr));
+    }
+}
+
+2. better approach 
+in python 
+def left_rotate(arr):
+    n=len(arr)
+    k=k%n
+    temp=arr[k:]+arr[:k]
+    for in in range(n):
+        arr[i]=temp[i]
+    return arr
+arr = [1, 2, 3, 4, 5]
+print("Better Left Rotated:", left_rotate_better(arr, 2))
+
+better approach in java 
+import java.util.*;
+public class leftRotateBetter{
+    public static void rotateLeft(int[] arr,int k){
+        int n=arr.length;
+        k=k%n;
+        int[] temp=new int[n];
+        for(int i=0;i<n;i++){
+            temp[i]=arr[(i+k)%n];
+        }
+        for (int i=0;i<n;i++){
+            arr[i]=temp[i];
+        }
+    }
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        rotateLeft(arr, 2);
+        System.out.println("Better Left Rotated: " + Arrays.toString(arr));
+    }
+}
+3.. optimal approach in python 
+def reverse(arr,start,end):
+    while(start<end):
+        arr[start],arr[end]=arr[end],arr[start]
+        start+=1
+        end-=1
+def left_rotate_arr(arr,k):
+    n=len(arr)
+    k=k%n
+    reverse(arr,0,k-1)
+    reverse(arr,k,n-1)
+    reverse(arr,0,n-1)
+    return arr
+arr = [1, 2, 3, 4, 5]
+print("Optimal Left Rotated:", left_rotate_optimal(arr, 2))
+
+optima in java 
+
+import java.util.*;
+
+public class LeftRotateOptimal {
+    public static void reverse(int[] arr, int start, int end) {
+        while (start < end) {
+            int temp = arr[start];
+            arr[start++] = arr[end];
+            arr[end--] = temp;
+        }
+    }
+
+    public static void rotateLeft(int[] arr, int k) {
+        int n = arr.length;
+        k = k % n;
+
+        reverse(arr, 0, k - 1);
+        reverse(arr, k, n - 1);
+        reverse(arr, 0, n - 1);
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        rotateLeft(arr, 2);
+        System.out.println("Optimal Left Rotated: " + Arrays.toString(arr));
+    }
+}
