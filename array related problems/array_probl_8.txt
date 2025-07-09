@@ -184,4 +184,44 @@ public class LongestSubArraySumBetter{
 }
 
 3. optimal approach in python 
+def longest_subarray_sumk(arr):
+    n=len(arr)
+    left=0
+    right=0
+    total=0
+    max_len=0
+    while right<n:
+        total+=arr[right]
+        while total >k:
+            total-=arr[left]
+            left+=1
+        if total ==k:
+            max_len=max(max_len,right-left+1)
+        right+=1
+    return max_len
 
+in java optimal solution 
+public class LongestSubarray{
+    public static int longestSubarraysumk(int[] arr,int k){
+        int n=arr.length;
+        int left=0,right=0;
+        int sum=0, maxLen=0;
+        while (right<n){
+            sum+=arr[right];
+            while (sum>k){
+                sum-=arr[left];
+                left++;
+            }
+            if(sum==k){
+                maxLen=Math.max(maxLen,right-left+1);
+            }
+            right++;
+        }
+        return maxLen;
+    }
+    publoic static void main(String[] args){
+        int [] arr={1,2,1,1,1};
+        int k=3;
+        System.out.println("Optimal Approach: " + longestSubarray(arr, k));
+    }
+}
