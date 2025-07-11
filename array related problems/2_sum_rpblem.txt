@@ -1,0 +1,72 @@
+### 2 sum 
+brute force approach in python 
+def two_sum_brute(arr):
+    n=len(arr)
+    for i in range(n):
+        for j in range(i+1,n):
+            if arr[i]+arr[j]==target:
+                return [i,j]
+    return []
+print("Brute Force:", two_sum_brute([2, 7, 11, 15], 9))  # Output: [0, 1]
+
+in java brute force approach 
+public lass twoSumBrute{
+    public static int[] twoSum(int[] arr,int target){
+        int n=arr.length;
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                if(arr[i]+arr[j]==target){
+                    return new int[]{i,j};
+                }
+            }
+        }
+        return new int[]{-1,-1};
+    }
+    public static void main(String[] args) {
+        int[] arr = {2, 7, 11, 15};
+        int[] result = twoSum(arr, 9);
+        System.out.println("Brute Force: [" + result[0] + ", " + result[1] + "]");
+    }
+}
+
+2. better approiach in python 
+sorting and two pointer apptroach 
+def two_sum_better(arr):
+    arr.sort();
+    left,right=0,len(arr)-1
+    while left<right:
+        s=arr[left]+arr[right]
+        if s==target:
+            return [arr[left],arr[right]]
+        elif s<target:
+            left+=1
+        else:
+            right-=1
+    return []
+print("Better (values):", two_sum_better([2, 7, 11, 15], 9))  # Output: [2, 7]
+
+java better approach 
+import java.util.Arrays;
+public class TwoSumBetter{
+    public static int[] twoSum(int[] arr,int target){
+        Arrays.sort(arr);
+        int left=0,right=arr.length-1;
+        while (left<right){
+            int sum=arr[left]+arr[right];
+            if(summ==target){
+                return new int[]{arr[left],arr[right]};
+            }
+            else if(sum<target){
+                left++;
+            }
+            else{
+                right--;
+            }
+        }
+        return new int[]{-1,-1};
+    }
+    public static void main(String[] args){
+        int [] result=twoSum(new int[]{2,7,11,15},9);
+        print("Better (values):", two_sum_better([2, 7, 11, 15], 9))  # Output: [2, 7]
+    }
+}
