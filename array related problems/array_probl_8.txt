@@ -260,7 +260,10 @@ public class longestSubaaray{
                 maxLen=Math.max(maxLen,length);
             }
             if(!map.containsKey(prefixSum)){
-                map.put(prefixSum,i);
+                map.put(prefixSum,i);/// like if you take this type of arr like arr1=[2,0,0,3] and k=3 then longest subarray which sum is 3 is [0,0,3] so in this like 2 first occurence you dont need to change 
+                ike when i move from 0 index to 1th index then also sum is 2 and when i move forword toward 2nd index then also sum = 2 and when i come on 3rd index then for only this index sum is aso 3 
+                but i dont need shortest subaarray which sum is 3 i need longest so dont change index of sum 2 from 0 to and 2 like if prefix sum come same like before then 
+                dont update index of that sum only print firstoccurence of that sum 
             }
         }
         return maxLen;
