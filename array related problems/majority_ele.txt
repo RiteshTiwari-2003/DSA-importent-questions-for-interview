@@ -35,3 +35,69 @@ public  class majorityelement{
         System.out.println("Brute Force: " + majorityElement(arr));  // Output: 2
     }
 }
+
+2. better approach in python 
+hashmap approach 
+def majority_better(arr):
+    from collections import defaultdict
+    n=len(arr)
+    freq=defaultdict(int)
+    for num in arr:
+        freq[num]+=1
+        if freq[num]>n//2:
+            return num
+    return -1
+print("Better:", majority_better([2, 2, 1, 2, 3, 2, 2]))
+
+better approach in java 
+import java.util.*;
+public class MajorityElementBetter{
+    public static int majorityElement(int[] arr){
+        Map<Integer,Integer> map=new hashMap<>();
+        int n=arr.length;
+        for(int num:arr){
+            freq.put(num,freq.getordefault(num,0)+1);
+            if(freq.get(num)>n//2){
+                return num;
+            }
+        }
+        return -1;
+    }
+    public static void main(String[] args) {
+        int[] arr = {2, 2, 1, 2, 3, 2, 2};
+        System.out.println("Better: " + majorityElement(arr));  // Output: 2
+    }
+}
+
+3.optimal approach in python 
+def majority_optimal(arr);
+    count=0
+    candidate=None
+    for num in arr:
+        if count==0:
+            candidate=num
+        count+=(1 if num==candiadte else -1)
+    if arr.count(candidate)>n//2:
+        return candiadte
+    return -1
+in java optimal approach 
+public class majorityElement{
+    public static int majorityElement(int[] arr){
+        int count=0,candiadate=-1;
+        for(int num:arr)[
+            if(count==0){
+                candidate=num;
+            }
+            count+=(num==candidate)?1:-1;
+        ]
+        count=0;
+        for(int num:arr){
+            if(num==candidate)count++;
+        }
+        return count>arr.length//2?candiadte:-1;
+    }
+    public static void main(String[] args) {
+        int[] arr = {2, 2, 1, 2, 3, 2, 2};
+        System.out.println("Optimal: " + majorityElement(arr));  // Output: 2
+    }
+}
