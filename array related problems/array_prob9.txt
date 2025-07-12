@@ -1,0 +1,115 @@
+sort the array include 0's 1's and 2's 
+
+python brute force approach 
+def sort_array_brute(arr):
+    return sorted(arr)
+arr=[2,0,1,2,1,0]
+print("Brute force approach:",sort_array_brute(arr))
+
+java brute force approach 
+import java.util.Arrays;
+public class sortColorBrute{
+    public static void main(String[] args){
+        int[] arr={2,0,1,2,1,0};
+        Arrays.sort(arr);
+        System.out.println("Brute force :"+Arrays.toString(arr));
+    }
+}
+
+2.. better approach in python 
+def sort_better_python(arr):
+    count0,count1,count2=0
+    for num in array:
+        if num==0:
+            count0+=1
+        elif num==1:
+            count1+=1
+        else:
+            count2+=1
+    index=0
+    arr[:cont0]=[0]*count0
+    arr[count0:count0+count1]=[1]*count1
+    arr[count0+count1:]=[2]*count2
+    return arr
+arr = [2, 0, 1, 2, 1, 0]
+print("Better:", sort_array_better(arr)) 
+
+java better approach 
+public class SortColorBettter{
+    public static void main(String[] args){
+        int [] arr={2,0,1,2,1,0};
+        int count0=0, count1=0, count2=0;
+        for(int num:arr){
+            if(numm==0){
+                count0++;
+            }
+            else if (num==1){
+                count1++;
+            }
+            else{
+                count2++;
+            }
+        }
+        int index=0;
+        for(int i=0;i<count0;i++){
+            arr[index++]=0;
+        }
+        for(int i=0;i<count1;i++){
+            arr[index++]=1;
+        }
+        for(int i=0;i<count2;i++){
+            arr[index++]=2;
+        }
+        System.out.print("Better: ");
+        for (int num : arr) System.out.print(num + " ");  // Output: 0 0 1 1 2 2
+
+    }
+}
+
+### optimal approach dutch National Flag Algorithm 
+like you shoulld devide array like this like from index 0 to low-1 we put 0 and from low to mid-1 there is 1 and from mid to high there is unorder random other number and from high
++1 to n-1 there is 2 
+def sort_optimal_approch(arr):
+    low,mid,high=0,0,len(arr)-1
+    while mid<=high:
+        arr[mid]==0:
+            arr[low],arr[mid]=arr[mid],arr[low]
+            low+=1
+            mid+=1
+        elif arr[mid]==1:
+            mid+=1
+        else:
+            arr[mid],arr[high]=arr[high],arr[mid]
+            high-=1
+    return arr 
+arr = [2, 0, 1, 2, 1, 0]
+print("Optimal:", sort_array_optimal(arr)) 
+
+in java optimal approach 
+public class SortOptimal{
+    public static void main(String[] args){
+        int[] arr1={2,0,1,2,1,0};
+        int low=0,mid=0,high=arr1.length-1;
+        while(mid<=high){
+            if(arr[mid]==0){
+                int temp=arr[low];
+                arr[low]=arr[mid];
+                arr[mid]=temp;
+                low++;
+                mid++;
+            }
+            else if(arr[mid]==1){
+                mid++;
+            }
+            else{
+                int temp=arr[mid];
+                arr[mid]=arr[high];
+                arr[high]=temp;
+                high--;
+            }
+        }
+        System.out.print("Optimal: ");
+        for (int num : arr) System.out.print(num + " ");
+    }
+}
+        
