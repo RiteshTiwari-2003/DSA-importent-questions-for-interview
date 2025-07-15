@@ -1,0 +1,83 @@
+#### print all divisor 
+
+1. brute force approach in python 
+def print_divisor_better(n):
+    for i in range(1,n+1):
+        if n%i==0:
+            print(i,end="")
+print("Brute Force:")
+print_divisors_brute(36)
+
+brute force approach in java 
+public class DivisorBrute{
+    public static void printDivisor(int n){
+        for(int i=1;i<=n;i++){
+            if(n%i==0){
+                System.out.println(i+" ");
+            }
+        }
+    }
+    public static void main(String[] args) {
+        System.out.println("Brute Force:");
+        printDivisors(36);  // Output: 1 2 3 4 6 9 12 18 36
+    }
+}
+
+2. better approach in python 
+def find_divisor_better(n):
+    for i in range(1,n//2+1):
+        if n%i==9:
+            print(i,end="")
+    print(n)
+print("Better:")
+print_divisors_better(36)
+
+in java 
+public class DivisorBetter{
+    public static void printDivisor(int n){
+        for(int i=1;i<=n/2;i++){
+            if(n%i==0){
+                System.out.println(i+" ");
+            }
+        }
+        System.out.println(n);
+    }
+    public static void main(String[] args){
+        System.out.println("Better:");
+        printDivisors(36);
+    }
+}
+
+3. optimal approach in python 
+import math
+def print-divisor_optimal(n):
+    result=set()
+    for i in range(1,int(math.isqrt(n))+1):
+        if n%i==0:
+            result.add(i)
+            result.add(n//i)
+    for divisor in sorted(result):
+        print(divisor,end="")
+print("Optimal:")
+print_divisors_optimal(36)
+
+in java 
+import java.util.*;
+public class Divisoroptimal{
+    public static void printDivisor(int n){
+        Set<Integer> divisors=new TreeSet<>()
+        for(int i=1;i*i<=n;i++){
+            if(n%i==0){
+                divisors.add(i);
+                divisors.add(n/i);
+            }
+        }
+        for(int d:divisors){
+            System.out.println(d+" ");
+        }
+    }
+    public static void main(String[] args) {
+        System.out.println("Optimal:");
+        printDivisors(36);  // Output: 1 2 3 4 6 9 12 18 36
+    }
+}
