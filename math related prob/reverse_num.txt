@@ -60,3 +60,4 @@ public class ReverseNumberOptimal{
         System.out.println("Optimal: " + reverse(12345)); // Output: 54321
     }
 }
+

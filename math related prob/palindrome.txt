@@ -1,0 +1,70 @@
+### define that any number is palindrome or not 
+brute force approach in python 
+def is_palindrome_num(n):
+    str1=str(n)
+    reversed_s=''
+    for i in range(len(s)-1,-1,-1):
+        reversed_s+=str1[i]
+    return str1==reversed_s
+print("Brute Force:", is_palindrome_brute(121)) 
+
+in java 
+public class PalindromeBute{
+    public static boolean isPalindrome(int n){
+        String s=Integer.toSting(n);
+        String reversed_str=''
+        for(int i=s.length()-1;i>=0;i--){
+            reversed_str+=s.charAt(i);
+        }
+        return s.equls(reversed_str);
+
+
+    }
+    public static void main(String[] args) {
+        System.out.println("Brute Force: " + isPalindrome(121)); // True
+    }
+}
+
+2. better approach 
+in python 
+def is_palindrome_better(n):
+    return str(n)==str(n)[::-1]
+print("Better:", is_palindrome_better(121)) 
+
+in java 
+public class PsalindromeBetter{
+    public static boolean isPalindrome(int n){
+        String s=Integer.toString(n);
+        String reversed=new StringBuilder(s).reverse().toString();
+        return s.equals(reversed);
+
+    }
+    public static void main(String[] args) {
+        System.out.println("Better: " + isPalindrome(121)); // True
+    }
+}
+
+3. optimal approach in python 
+def palindrome_optimmal(n):
+    original=n
+    reversed_num=0
+    while n>0:
+        reversed_num=reversed_num*10+(n%10)
+        n//=10
+    return original==reversed_num
+print("Optimal:", is_palindrome_optimal(121)) 
+
+public class PalindromeOptimal{
+    public static boolean isPalindrome(int n){
+        int original=n,reversed=0;
+        while(n>0){
+            int digit=n%10;
+            reversed=reversed*10 + digit;
+            n/=10;
+        }
+        return original==reverwed;
+    }
+    public static void main(String[] args) {
+        System.out.println("Optimal: " + isPalindrome(121)); // True
+    }
+}
