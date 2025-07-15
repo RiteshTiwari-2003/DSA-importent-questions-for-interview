@@ -1,0 +1,62 @@
+brute force approach in python 
+def reveerse_number(n):
+    n=str(n)
+    reverse_str=''
+    for i in range(len(n)-1,-1,-1):
+        reverse-str+=n[i]
+    return int(reverse_str)
+print("Brute Force:", reverse_number_brute(12345))
+
+in java 
+public class ReverseNumber{
+    public static int reverse(int n){
+        String str=Integer.toString(n);
+        String reversed='';
+        for(int i=str.length()-1;i>-1;i--){
+            reversed+=str.charAt(i);
+        }
+        return Integer.parseInt(reversed);
+    }
+}
+2.better approach in pythin 
+def reverse_num(n);
+    return int(str(n)[::-1])
+print("Better:", reverse_number_better(12345))
+
+in java 
+public class ReverseNumber{
+    public static int reverse(int n){
+        StringBuilder sb= new StringBuilder(Integer.toString(n));
+        sb.reverse();
+        return Integer.parseInt(sb.toString());
+    }
+    public static void main(String[] args) {
+        System.out.println("Better: " + reverse(12345)); // Output: 54321
+    }
+}
+
+3. optimal  approach in python 
+def reverse_num_opt(n):
+    rev=0
+    while n>0:
+        digit=n%10
+        rev=rev*10 + digit
+        n//=10
+    return rev 
+print("Optimal:", reverse_number_optimal(12345)) 
+
+in java 
+public class ReverseNumberOptimal{
+    pubic static int reverse(int n){
+        int rev=0;
+        whilr (n>0){
+            int digit=n%10;
+            rev=rev*10 + digit;
+            n/=10;
+        }
+        return rev;
+    }
+    public static void main(String[] args) {
+        System.out.println("Optimal: " + reverse(12345)); // Output: 54321
+    }
+}

@@ -1,0 +1,84 @@
+### best time to buy and sell stock 
+
+def max_profit_brute(arr):
+    n=len(prices)
+    max_profit=0
+    for i in range(n):
+        for j in range(i+1,n):
+            profit=prices[j]-prices[i]
+            max_profit=max(max_profit,profit)
+    return max_profit 
+print("Brute Force:", max_profit_brute([7, 1, 5, 3, 6, 4]))
+
+
+injava brute force approach 
+public class Stackbrute{
+    public static int maxprofit(int [] prices){
+        int maxProfit=0;
+        int n=prices.length;
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                maxprofit=Math.max(maxprofit,prices[j]-prices[i]);
+            }
+        }
+        return maxprofit;
+    }
+    public static void main(String[] args) {
+        int[] prices = {7, 1, 5, 3, 6, 4};
+        System.out.println("Brute Force: " + maxProfit(prices));  // Output: 5
+    }
+}
+
+2. better approach in python 
+def max-profit_better(prices):
+    n=len(prices)
+    min_price=prices[0]
+    max_profit=0
+    for i in range(1,n):
+        max_profit=max(max_proit,prices[i]-min_price)
+        min-price=min(min_price,prices[i])
+    return maxProfit 
+
+in java better approach 
+pblic class StockBetter{
+    public static int maxProfit(int prices[]){
+        int minPrice=prices[0],maxProfit=0;
+        for(int i=1;i<prices.length;i++){
+            maxProfit=Math.max(maxproft,prices[i]-minprice);
+            minprice=math.min(minprice,prices[i]);
+
+        }
+        return maxProfit;
+    }
+    public static void main(String[] args){
+        int[] prices = {7, 1, 5, 3, 6, 4};
+        System.out.println("Better: " + maxProfit(prices));
+    }
+}
+3. optimal approach in python 
+def max_profit_optimal(arr):
+    min_price=float('inf')
+    max_profit=0
+    for price in prices:
+        min_price=min(min_price,price)
+        profit=price - min_price
+        max_profit=max(max_profit,profit)
+    return max_profit
+print("Optimal:", max_profit_optimal([7, 1, 5, 3, 6, 4]))
+
+in java optimal approach 
+public class Stockoptimal{
+    public static int maxProfit(int [] prices){
+        int minPrice=Integer.MAX_VALUE,maxprofit=0;
+        for(int price:prices){
+            minPrice=Math.min(minPrice,price);
+            int profit=price - minPrice;
+            maxProfit=Math.max(maxProfit,profit);
+        }
+        return maxProfit;
+    }
+    public static void main(String[] args){
+        int[] prices={7,1,5,3,6,4};
+        System.out.println("Optimal:"+maxProfit(prices));
+    }
+}
