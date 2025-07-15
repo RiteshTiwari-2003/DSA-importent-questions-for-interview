@@ -1,0 +1,99 @@
+!. brute force appraoch 
+in python 
+def armstrong_num(n):
+    str1=str(n)
+    power=len(str1)
+    total=0
+    for ch in str1:
+        total+=int(ch)**power
+    return total==str1
+print("Brute Force:", is_armstrong_brute(153))
+
+in java 
+public class ArmstrongNumber{
+    public static boolean isArmstrongNumber(int n){
+        String s=Integer.toString(n);
+        int power=s.length(),sum=0;
+        for(int i=0;i<s.length();i++){
+            int digit=s.charAt(i)-'0';
+            sum+=Math.pow(digit,power);
+        }
+        return sum==n;
+    }
+    public static void main(String[] args) {
+        System.out.println("Brute Force: " + isArmstrong(153)); // True
+    }
+}
+
+2. better approach in python 
+def is_armstrong_num(n):
+    num=n
+    power=len(str(n))
+    total=0
+    while num>0:
+        digit=num%10
+        total+=digit**power
+        num//=10
+    return total==n
+print("Better:", is_armstrong_better(9474))
+
+in java 
+pubic class ArmstrongNumber{
+    public static boolean isArmstrongNum(int n){
+        int num=n,digits=0;
+        while(num>0){
+            digits++;
+            num/=10;
+
+        }
+        int sum=0,temp=n;
+        while(temp>0){
+            int digit=temp%10;
+            sum+=Math.pow(digit,digits);
+            temp/=10;
+
+        }
+        return sum==n;    }
+    public static void main(String[] args) {
+        System.out.println("Better: " + isArmstrong(9474)); // True
+    }
+}
+
+3. optimal approach 
+in python 
+def is_armstrong(n):
+    power=len(str(n))
+    powers=[i**power for i in range(10)]
+    total=0
+    temp=n
+    wiule(temp>0):
+        total+=powers[temp%10]
+        temp//=10
+    return total==n
+print("Optimal:", is_armstrong_optimal(9474))
+
+in java 
+public class ArmstrongNumber{
+    public static boolean isArmstrong(int n){
+        int temp=n,digits=0;
+        while(temp>0){
+            digits++;
+            temp/=10;
+        }
+        int[] powers=new int[10];
+        for (int i=0;i<10;i++){
+            powers[i]=(int)Math.pow(i,digits);
+        }
+        int sum=0;
+        temp=n;
+        while(temp>0)[
+            int digit=temp%10;
+            sum+=powers[digit];
+            temp/=10;
+        ]
+        return sum==n;
+    }
+    public static void main(String[] args) {
+        System.out.println("Optimal: " + isArmstrong(9474)); // True
+    }
+}
