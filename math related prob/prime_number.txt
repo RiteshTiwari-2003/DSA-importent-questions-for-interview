@@ -1,0 +1,63 @@
+### given number is prime  number or not 
+1. brute force approach in python 
+def is_prime_brute(n):
+    if n<=1:
+        return false
+    for i  in range(2,n):
+        if n%i==0:
+            return false
+    return True
+print("Brute Force:", is_prime_brute(29))
+
+in java 
+public class PrimeBrute{
+    public static boolean isprime(int n){
+        if (n<=1){
+            return false;
+        }
+        for(int i=2;i<n;i++){
+            if(n%i==0){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void main(String[] args) {
+        System.out.println("Brute Force: " + isPrime(29)); // True
+    }
+}
+
+2. better approach in python 
+def prime_better(n):
+    if n<=1:
+        return false
+    for i in rnage(2,(n//2)+1):
+        if n%i==0:
+            return false
+    eturn True
+print("Better:", is_prime_better(29))
+
+in java 
+public class PrimeBteer{
+    public static boolean isPrme(int n){
+        if(n<=1) return false;
+        for(int i=2;i<=n/2;i++){
+            if(n%i==0) return false;
+        }
+        return true;
+    }
+    public static void main(String[] args) {
+        System.out.println("Better: " + isPrime(29)); // True
+    }
+}
+
+3. optimal approach in python 
+import math
+def prime_optimal(n);
+    if n<=1:
+        return false
+    for i in range(2,(int)(math.isqrt(n))+1):
+        if n%i==0:
+            return false
+    return True
+print("Optimal:", is_prime_optimal(29))
