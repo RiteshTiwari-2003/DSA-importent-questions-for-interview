@@ -1,0 +1,84 @@
+### fibonacci sereis 
+brute force approach in python 
+def fibonacci-brute(n);
+    if n<=1:
+        return n
+    return fibonacci_brute(n-1)+fibonacci-brute(n-2)
+print("Brute Force:")
+for i in range(10):
+    print(fibonacci_brute(i), end=' ')
+
+java brute force approach 
+public class FibonacciBrute{
+    public static int fibonacci(int n){
+        if(n<=1) return n;
+        return fibonacci(n-1)+fibonacci(n-2);
+    }
+    public static void main(String[] args) {
+        System.out.println("Brute Force:");
+        for (int i = 0; i < 10; i++) {
+            System.out.print(fibonacci(i) + " ");
+        }
+    }
+}
+
+2. beeter approach 
+in python 
+def fibonacci_better(n,memo={}):
+    if n in memo:
+        return memo[n]
+    if n<=1:
+        return n
+    memo[n]=fibonacci_better(n-1,memo)=fibonacci_btter(n-2,memo)
+    retur memo[n]
+
+print("Better:")
+for i in range(10):
+    print(fibonacci_better(i), end=' ')
+
+in java better approach 
+import java.util.*;
+public class Fibonacci{
+    static Map<Integer,Integer> memo=new HashMap<>();
+    public static int fibonacci(int n){
+        if(memo.containskey(n)) return memo.get(n);
+        if(n<=1) return n;
+        int val=fibonacci(n-1)+fibonacci(n-2);
+        memo.put(n,val);
+        return val;
+
+    }
+    public static void main(String[] args) {
+        System.out.println("Better:");
+        for (int i = 0; i < 10; i++) {
+            System.out.print(fibonacci(i) + " ");
+        }
+    }
+}
+3. optimmal spproach in python 
+def fibonacci_optimal(n):
+    a,b=0,1
+    for _ in range(n):
+        print(a,end="")
+        a,b=b,a+b
+print("Optimal:")
+fibonacci_optimal(10)
+
+in java 
+public class Fibonaccioptimal{
+    public static void printFibonacci(int n){
+        int a=0,b=1;
+        for(int i=0;i<n;i++){
+            System.out.println(a+" ");
+            int temp=a+b;
+            a=b;
+            b=tesmp;
+
+        }
+    }
+    public static void main(String[] args) {
+        System.out.println("Optimal:");
+        printFibonacci(10);
+    }
+}
+
