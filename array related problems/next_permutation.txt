@@ -1,0 +1,22 @@
+#### next permutation in python and java 
+1. brute force approach in python 
+import itertools 
+def next_permutation(arr):
+    perms=sorted(itertools.permutations(arr))
+    try:
+        idx=perms.index(tuple(arr))
+        next_=perms[idx+1]
+    except (ValueError,IndexError):
+        next_=perms[0]
+    return list(_next)
+print("Brute:", next_permutation_brute([1,2,3]))  # [1,3,2]
+print("Brute:", next_permutation_brute([3,2,1]))  # [1,2,3]
+
+java brute force approach 
+import java.util.*;
+public class NextPermutation{
+    public static List<Integer> nextPerm(List<Integer> arr){
+        List<List<Integer>> perms=new ArrayList<>();
+        
+    }
+}
