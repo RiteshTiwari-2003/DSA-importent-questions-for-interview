@@ -1,0 +1,40 @@
+### find all the leaders in the given array like all those elements are leader right side of which element allthe element should be smaller than that element
+def leader_brute(arr);
+    n=len(arr)
+    leaders=[]
+    for i in range(n):
+        is_leader=True
+        for j in range(i+1,n):
+            if arr[j]>arr[i]:
+                is_leader=False
+                break
+        if is_leader:
+            leader.append(arr[i])
+    retunr leaders
+print(find_leaders_brute([16, 17, 4, 3, 5, 2]))
+
+in java 
+import java.util.*;
+public class leaderBrute{
+    public static List<Integer> findleader(int[] arr){
+        int n=arr.length;
+        List<Integer> leaders=new Arraylist<>();
+        for(int i=0;i<n;i++){
+            boolean isLeader=true;
+            for(int j=i+1;j<n;j++){
+                if(arr[j]>arr[i]){
+                    isleader=false;
+                    break;
+                }
+            }
+            if(isleader){
+                leaders.add(arr[i]);
+            }
+        }
+        retunr leaders;
+    }
+    public static void main(String[] args){
+        int[] arr={16,7,8,9,45};
+        System.out.println(findLeaders(arr));
+    }
+}
