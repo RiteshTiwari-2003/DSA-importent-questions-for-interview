@@ -38,3 +38,17 @@ public class leaderBrute{
         System.out.println(findLeaders(arr));
     }
 }
+
+2. better approach in python 
+def find-leader_better(arr):
+    n=len(arr)
+    leaders=[]
+    max_from_right=arr[-1]
+    leaders.append(max_from_right)
+    for i in range(n-2,-1,-1):
+        if arr[i]>max_from-right:
+            max_from_right=arr[i]
+            leaders.append(max-from_right)
+    return leaders[::-1]
+print(find_leaders_better([16, 17, 4, 3, 5, 2]))
+
