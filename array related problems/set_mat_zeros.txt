@@ -1,0 +1,49 @@
+## set matix zeros 
+brute force approach in python  
+def set_Zeros_brute(arr):
+    rows,cols=len(matrix),len(matrix[0])
+    marker=float('inf')
+    for i in range(rows):
+        for j in range(cols):
+            if matrix[i][j]==0:
+                for k in range(cols):
+                    if matrix[i][k]!=0:
+                        matrix[i][k]=marker
+                for k in range(rows):
+                    if matrix[k][j]!=0:
+                        matrix[k][j]=marker
+    for i in range(rows):
+        for j in range(cols):
+            if matrix[i][j]==marker:
+                matrix[i][j]=0
+
+in java brute force approach 
+publoc class main{
+    public static void setZerosBrute(int[][] matrix){
+        int rows=matrix.length,cols=matrix[0].length;
+        int markwr=Integer.MIN_VALUE+1;
+        for(int i=0;i<rows;i++){
+            for(int j=0;j<cols;j++){
+                if(matrix[i][j]==0){
+                    for(int k=0;k<cols;k++){
+                        if(matrix[i][k]!=0){
+                            matrix[i][k]=marker;
+                        }
+                    }
+                    for(int k=0;k<rows;k++){
+                        if(matrix[k][j]!=0){
+                            matrix[k][j]=marker;
+                        }
+                    }
+                }
+            }
+        }
+        for(int i=0;i<rows;i++){
+            for(int j=0;j<cols;j++){
+                if(matrix[i][j]==marker){
+                    matrix[i][j]=0;
+                }
+            }
+        }
+    }
+}
