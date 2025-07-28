@@ -47,3 +47,40 @@ publoc class main{
         }
     }
 }
+
+2. better approach in python 
+using extra space use two array row and col
+def set_zeros_better(arr):
+    rows,cols=len(matrix),len(matrix[0])
+    row=[0]*rows
+    col=[0]*cols
+    for i in range(rows):
+        for j in range(cols):
+            if matrix[i][j]==0:
+                row[i]=1
+                col[j]=1
+    for i in range(rows):
+        for j in range(cols):
+            if row[i]==1 or col[j]==1:
+                matrix[i][j]=0
+
+in java better approach 
+public class Main {
+    public static void setZeroesBetter(int[][] matrix) {
+        int rows = matrix.length, cols = matrix[0].length;
+        int[] row = new int[rows];
+        int[] col = new int[cols];
+
+        for (int i = 0; i < rows; i++)
+            for (int j = 0; j < cols; j++)
+                if (matrix[i][j] == 0) {
+                    row[i] = 1;
+                    col[j] = 1;
+                }
+
+        for (int i = 0; i < rows; i++)
+            for (int j = 0; j < cols; j++)
+                if (row[i] == 1 || col[j] == 1)
+                    matrix[i][j] = 0;
+    }
+}
