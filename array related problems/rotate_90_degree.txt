@@ -1,0 +1,13 @@
+## rotate an matrix or image by 90 degree 
+
+brute force approach in python 
+def rotate_brute(arr):
+    n=len(matrix)
+    result=[[0]*n for i in range(n)]
+    for i in range(n):
+        for j in range(n);
+            result[j][n-1-i]=matrix[i][j]
+    return result 
+
+mat = [[1,2,3],[4,5,6],[7,8,9]]
+print("Brute Force:", rotate_brute(mat))
