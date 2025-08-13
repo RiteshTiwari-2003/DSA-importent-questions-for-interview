@@ -1,0 +1,102 @@
+count subarray sum equals k
+1. brute force approach in python 
+def count_subarray_Brute(arr):
+        count=0
+        n=len(arr)
+        for i in range(arr):
+                for j in range(i,n):
+                        ub_sum=0
+                        for p in range(i,j+1):
+                                sub_sum+=arr[p]
+                        if sub-sum==k:
+                                count+=1
+        return count 
+java brute force approach 
+
+public class CountSubArraySum{
+        public static int countSubarrayBruteForce(int[] arr,int k){
+                int count=0,n=arr.lenght;
+                for(int i=0;i<n;i++){
+                        for(int j=i;j<n;j++){
+                                int subSum=0;
+                                for(int k=i;k<=j;k++){
+                                        subSum+=arr[k];
+                                }
+                                if(subSum==k){
+                                        count++;
+                                }
+                        }
+                }
+                return count;
+        }
+        public static void main(String[] args) {
+        System.out.println(countSubarraysBruteForce(new int[]{1, 2, 3}, 3)); // 2
+    }
+}
+
+2 better approach 
+in python 
+def count_subarray_sum(arr):
+        count=0
+        n=len(arr)
+        for i in range(n):
+                sub_sum=0
+                forj in range(i,n):
+                        sub_sum+=arr[j]
+                        if sub_sum==k:
+                                count+=1
+        return cunt 
+
+in java brute force approach 
+public class CountSubarraySum{
+        public static int countSubAraayBetter(int[] arr,int k){
+                int count=0,n=nums.length;
+                for(int i=0;i<n;i++){
+                        int subSum=0;
+                        for(int j=i;j<n;j++){
+                                subSum+=arr[j];
+                                if(subSum==k){
+                                        count++;
+                                }
+
+                        }
+                }
+                return count;
+        }
+        public static void main(String[] args) {
+        System.out.println(countSubarraysBetter(new int[]{1, 2, 3}, 3)); // 2
+    }
+}
+
+3. optimal approach in python 
+def subArray_optimal9arr:
+        count=0
+        prefix_sum=0
+        prefix_map={0:1}
+        for num in arr:
+                prefix-sum+=num
+                if prefix_sum - k in prefix_map:
+                        count+=prefix_map[prefix_sum-k]
+                prefix_map[prefix-sum]=prefix_map.get(prefix_sum,0)+1
+        return count
+
+in java 
+import java.util.*;
+public class CoiuntSubArraySUm{
+        public static int countSubarraysumoptimal(int[] nums,intk){
+                int count=0,prefixSum=0;
+                Map<Integer,Integer> prefixMap=new hashMap<>();
+                prefixMap.put(0,1);
+                for(int num:nums){
+                        prefix_sum+=num;
+                        if(prefix_map.containsKey(prefix_sum-k)){
+                                count+=prefix_map.get(prefix_sum-k);
+                        }
+                        prefixmap.put(prefixSum,prefixMap.getorDefault(prefixSum,0)+1);
+                }
+                return count;
+        }
+        public static void main(String[] args) {
+        System.out.println(countSubarraysOptimal(new int[]{1, 2, 3}, 3)); // 2
+    }
+}
