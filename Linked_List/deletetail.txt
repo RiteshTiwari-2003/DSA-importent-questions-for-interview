@@ -19,3 +19,34 @@ def delete-tail-brute(head):
         curr.next=Node(val)
         curr=curr.next
     return new_head
+
+
+in java 
+class Node{
+    int data;
+    Node next;
+    Node(int data)[
+        this.data=data;
+        this.next=null;
+    ]
+}
+public class LinkedListOps{
+    public static Node deletetailbruteForce(Node head){
+        if(head==null || head.next==null) return null;
+        java.util.Arraylist<integer> values=new java.util.ArrayList<>();
+        int temp=head;
+        while(temp!=null){
+            values.add(temp.data);
+            temp=temp.next;
+        }
+        values.remove(values.size()-1);
+        Node newHead=new Node(values.get(0));
+        Node curr=newHead;
+        for(int i=1;i<values.size();i++){
+            curr.next=new Node(values.get(i));
+            curr=curr.next;
+        }
+        return newhead;
+
+    }
+}
