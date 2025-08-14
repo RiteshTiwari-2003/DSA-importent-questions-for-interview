@@ -44,5 +44,50 @@ public class linkedlistops{
             values.add(temp.data);
             temp=temp.next;
         }
+        if (values.size()<=1){
+            return null;
+        }
+        Node newHead=new Node(values.get(1));
+        Node curr=newHead
+        for(int i=2;i<values.size();i++){
+            curr.next=new Node(values.get(i));
+            curr=curr.next;
+        }
+        return newHead;
     }
+}
+
+better approach 
+just shift head pointer to next head.next pointer 
+def delete-first_node(head):
+    if not head:
+        return None
+    return head.next
+
+in java 
+
+public static Node deleteFirstNode(Node head){
+    if head==null return null;
+    return head.next;
+}
+
+3. optimal approach in python 
+same as better approach but explicitly free the memory of the removed node 
+
+(in python gc handle it automatically , in java gc also handle it but we can null reference )
+def delete-first_optimal(head):
+    if not head:
+        return None 
+    temp=head
+    head=head.next
+    temp.next=None
+    return head
+
+java optimal code 
+public static Node deleteFirstoptimal(Node head){
+    if (head==null) return null;
+    Node temp=head;
+    head=head.next;
+    temp.next=null;
+    return head;
 }
