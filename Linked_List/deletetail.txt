@@ -1,0 +1,21 @@
+delete the tail of the linkedlistops
+1. brute force approach in python 
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+def delete-tail-brute(head):
+    if not head or not head.next:
+        return None
+    values=[]
+    temp=head
+    while temp:
+        values.append(temp.data)
+        temp=temp.next
+    values.pop()
+    new-head=Node(vaues[0])
+    curr=new-head
+    for val in values[1:]:
+        curr.next=Node(val)
+        curr=curr.next
+    return new_head
