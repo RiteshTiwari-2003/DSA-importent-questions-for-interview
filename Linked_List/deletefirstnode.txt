@@ -1,0 +1,48 @@
+### delete first node in linked list 
+1. brute force approach in python  
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+def delete_first_brutefoce(head):
+    if not head:
+        return None 
+    values=[]
+    temp=head
+    while temp:
+        values.append(temp.data)
+        temp=temp.next
+    values.pop(0)
+    if not values:
+        return None
+    new-head=Node(values[0])
+    curr=new-head
+    for  val in values[1:]:
+        curr.next=Node(val)
+        curr=curr.next
+    return new_head
+
+in java brute force approach 
+
+class Node{
+    int data;
+    Node next;
+    Node(int data){
+        this.data=data;
+        this.next=null;
+    }
+
+}
+public class linkedlistops{
+    public static Node deleteFirstbruteForce(Node head){
+        if(head==null){
+            return null;
+        }
+        java.util.ArrayList<Integer> values=new java.util.ArrayList<>();
+        Node temp=head;
+        while(temp!=null){
+            values.add(temp.data);
+            temp=temp.next;
+        }
+    }
+}
