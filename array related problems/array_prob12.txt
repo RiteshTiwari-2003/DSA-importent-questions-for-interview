@@ -1,0 +1,105 @@
+count subarrays xor equals to k
+
+brute force approach in python and java 
+
+def count_subarray_xor-brute_force(arr):
+    n=len(arr)
+    count=0
+    for i in range(n):
+        for j in range(i,n):
+            xor_sum=0
+            for p in range(i,j+1):
+                xor_sum+=arr[p]
+            if xor_sum==k:
+                count+=1
+    return count
+
+arr = [4, 2, 2, 6, 4]
+k = 6
+print("Brute Force Count:", count_subarrays_xor_bruteforce(arr, k))
+
+in java brute force approach 
+public class SubArrayXor{
+    public static int countSubarrayXor(int[] arr,int k){
+        int n=arr.length;
+        int count=0;
+        for(int i=0;i<n;i++){
+            for(int j=i;j<n;j++){
+                int xorSum=0;
+                for(int p=i;p<=j;p++){
+                    xorSum+=arr[p];
+                }
+                if(xorSum==k){
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+     public static void main(String[] args) {
+        int[] arr = {4, 2, 2, 6, 4};
+        int k = 6;
+        System.out.println("Brute Force Count: " + countSubarraysXorBruteForce(arr, k));
+    }
+}
+
+2. better approach in python 
+def count_subarray_xor_brute(arr):
+    n=len(arr)
+    count=0
+    for i in range(n):
+        xor_sum=0
+        for j in range(i,n):
+            xor_sum^=arr[j]
+            if xor_sum==k:
+                count+=1
+    return count 
+
+in java 
+public static int countSubarrayXorKBetter(int[] arr,int k){
+    int n=arr.length;
+    int count=0;
+    for(int i=0;i<n;i++){
+        int xorSum=0;
+        for(int j=i;j<n;j++){
+            xorSum^=arr[j]
+            if xorSum==k{
+                count++;
+            }
+        }
+    }
+    return count;
+}
+
+
+optimal approach in python 
+from collections import defaultdict
+def count_subarray_xor_k(arr):
+    freq=defaultdict(int)
+    freq[0]=1
+    prefix_xor=0
+    count=0
+    for num in arr:
+        prefix_xor^=num
+        if prefix_xor^k in freq:
+            count+=freq[prefix_xor^k]
+        freq[prefix_xor]+=1
+    retunr count 
+
+optimal approach in java 
+import java.util.*;
+public class SubArrayXoroptimal{
+    public static int countSubArrayXorOptimal(int[] arr,int k){
+        Map<Integer,Integer> map=new HashMap<>();
+        map.put(0,1);
+        int prefixXor=0,count=0;
+        for(int num:arr){
+            prefixXor^=num;
+            if(freq.containsKey(prefix_xor^k)){
+                count+=freq.get(prefix_xor^k);
+            }
+            freq.put(prefixXor,freq.getOrDefault(prefixXor,0)+1);
+        }
+        return count;
+    }
+}
