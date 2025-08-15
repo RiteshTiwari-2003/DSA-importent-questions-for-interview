@@ -50,3 +50,53 @@ public class LinkedListOps{
 
     }
 }
+
+2. better approach in python 
+def delete_tail_better(head):
+    if not head or not head.next:
+        return None
+    temp=head
+    while temp.next and temp.next.next:
+        temp=temp.next
+    temp.next=None
+    return head
+
+java better 
+public static Node deletetailBetter(Node head){
+    if(head==null || head.next==null){
+        return null;
+    }
+    Node temp=head;
+    while(temp.next!=null && temp.next.next!=null){
+        temp=temp.next;
+    }
+    temp.next=null;
+    return head;
+}
+
+3. optimal in python 
+def delete-tail_better(head):
+    if not head or not head.next:
+        return None 
+    temp=head
+    while temp.next and temp.next.next:
+        temp=temp.next
+    to_Delwte=temp.next
+    temp.next=None
+    to_delete=None
+    return head 
+
+optimal approach in java 
+public static Node deleteTailOptimal(Node head){
+    if(head==null || head.next==null){
+        return null;
+    }
+    Node temp=head;
+    while(temp.next!= null && temp.next.next!=null){
+        temp=temp.next;
+    }
+    Node todelete=temp.next;
+    temp.next=null;
+    todelete=null;
+    return head;
+}
