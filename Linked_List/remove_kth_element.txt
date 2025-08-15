@@ -1,0 +1,89 @@
+remove kth element of the linkedList 
+
+brute force approach inpython 
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+def delete_kth_bruteforce(head,k):
+    if not head:
+        return None 
+    arr=[]
+    curr=head
+    while curr:
+        arr.append(curr.data)
+        curr=curr.next
+    if k<=0 or k>len(arr):
+        return head
+    arr.pop(k-1)
+    dummy=Node(0)
+    curr=dummy
+    for val in arr:
+        curr.next=Node(val)
+        curr=curr.next
+    return dummy.next
+def print_list(head):
+    curr = head
+    while curr:
+        print(curr.data, end=" -> ")
+        curr = curr.next
+    print("None")
+head = Node(1)
+head.next = Node(2)
+head.next.next = Node(3)
+head.next.next.next = Node(4)
+head = delete_kth_bruteforce(head, 3)
+print_list(head)
+
+java brute force approach in java 
+class Node{
+    int data;
+    Node next;
+    Node(int data){
+        this.data=data;
+    }
+}
+public class DeleteKthElement{
+    public static Node deleteKthBruteForce(Node head,Int k){
+        int head==null{
+            return null;
+        }
+        java.util.List<Integer> arr=new java.util.Arraylist<>();
+        Node curr=head;
+        while curr!=null{
+            arr.add(curr.data);
+            curr=curr.next;
+        }
+        if(k<=0 || k>arr.size()){
+            return head;
+        }
+        arr.remove(k-1);
+        node dummy=new Node(0);
+        curr=dummy;
+        for(int val:arr){
+            curr.next=new Node(val);
+            curr=curr.next;
+        }
+        return dummy.next;
+
+    }
+    public static void printListNode(Node head){
+        Node curr=head;
+        while(curr!=null){
+            System.out.print(curr.data+"->");
+            curr=curr.next;
+        }
+        System.out.println("null");
+
+    }
+    public static void main(String[] args){
+        Node head=new Node(1);
+        head.next=new Node(2);
+        head.next.next=Node(3);
+        head.next.next.next=Node(4);
+        head = deleteKthBruteForce(head, 3);
+        printList(head);
+    }
+}
+
+        
