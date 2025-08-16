@@ -51,3 +51,69 @@ class linkedList{
         return dummy.next;
     ]
 }
+
+2. better approch in python 
+def delete_by_value_better(head,key):
+    if not head:
+        return None 
+    if head.data==key:
+        return head.next
+    prev,curr=None,head
+    while curr:
+        if curr.data==key:
+            prev.next=curr.next
+            break
+        prev=curr
+        curr=curr.next
+    return head
+
+in java better approach 
+class LinkedList{
+    Node deleteByValueBetter(Node head,int key){
+        if(head==null){
+            return null;
+        }
+        if(head.data==key){
+            return head.next;
+        }
+        Node prev=null, curr=head;
+        while(curr!=null){
+            if(curr.data==key){
+                prev.next=curr.next;
+                break;
+            }
+            prev=curr;
+            curr=curr.next;
+        }
+        return head;
+    }
+}
+
+3. optimal approach in python 
+def delete_value_ll_optimal(head,key):
+    dummy=Node(0)
+    dummy.next=head
+    curr=dummy
+    while curr.next:
+        if curr.next.data==key:
+            curr.next=curr.next.next
+            break
+        curr=curr.next
+    return dummy.next
+
+java optimal solution 
+class LinkedList{
+    Node deleteValueOptimal(Node head,int key){
+        Node dummy=new Node(0);
+        dummy.next=head;
+        Node curr=dummy;
+        while(curr.next!=null){
+            if(curr.next.data==key){
+                curr.next=curr.next.next;
+                break;
+            }
+            curr=curr.next;
+        }
+        return dumy.next;
+    }
+}
