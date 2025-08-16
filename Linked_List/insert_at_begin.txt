@@ -1,0 +1,43 @@
+insert a new element at the beginning 
+in python 
+
+class Node :
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+
+class LinkedList:
+    def __init__(self):
+        self.head=None
+    
+    ## brute force approach 
+    def insert_at_beggining_brute(self,data):
+        new_head=Node(data)
+        temp=self.head
+        curr=new_head
+        while temp:
+            curr.next=Node(temo.data)
+            temp=temp.next
+            curr=curr.next
+        self.head=new_head
+    def insert_at_beggining_better(self,data):
+        new_head=Node(data)
+        new_head.next=self.head
+        self.head=new_head
+
+    ### optial approach same as better 
+    def insert_at_beggining_optimal(self,data):
+        new_head=Node(data)
+        new_head.next=self.head
+        self.head=new_head
+    def printList(self):
+        curr=self.head
+        while curr:
+            print(curr.data,end="->")
+            curr=curr.next
+        print("None")
+l1=LinkedList()
+l1.insert_at_beggining_brute(10);
+l1.insert_at_beggining_better(20);
+l1.insert_at_begginig_optimal(40);
+l1.print_list()
