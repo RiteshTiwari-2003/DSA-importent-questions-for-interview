@@ -1,0 +1,53 @@
+remove any value from the linked ist 
+brute force approach in python 
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+def delete_by_value_brute(head,key):
+    if not head:
+        return None 
+    arr=[]
+    temp=head
+    while temp:
+        arr.append(temp.data)
+        temp=temp.next
+    if key in arr:
+        arr.remove(key)
+    dummy=Node(0)
+    curr=dummy
+    for val in arr:
+        curr.next=Node(val)
+        curr=curr.next
+    return dummy.next
+
+in java brute force approach 
+class Node{
+    int data;
+    Node next;
+    Node(int data){
+        data=data;
+        next=null;
+    }
+}
+class linkedList{
+    Node deleteValueFromLinkdList(Node head,int k)[
+        if (head==null){
+            return null;
+        }
+        java.util.List<Integer> arr=new java.util.ArrayList<>();
+        Node temp=head;
+        while(temp!=null){
+            arr.add(temp.data);
+            temp=temp.next;
+        }
+        arr.remove((Integer)key);
+        Node dummy=new Node(0);
+        Node curr=dummy;
+        for(int val:arr){
+            curr.next=new Node(val);
+            curr=curr.next;
+        }
+        return dummy.next;
+    ]
+}
