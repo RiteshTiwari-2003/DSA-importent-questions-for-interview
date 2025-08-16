@@ -86,4 +86,78 @@ public class DeleteKthElement{
     }
 }
 
+2. better approach in python 
+def delete_kth_node_better(head):
+    if not head:
+        return None
+    if k==1:
+        return head.next
+    curr=head
+    for _ in range(k-2):
+        if not curr.next:
+            return head
+        curr=curr.next
+    if curr.next:
+        curr.next=curr.next.next
+    return head
+
+better in java 
+public static Node deleteKthElement(Node head,int k){
+    if(head==null){
+        return null;
+    }
+    if k==1{
+        return head.next;
+    }
+    Node curr=head;
+    for(int i=0;i<k-2;i++){
+        if(curr.next==null){
+            return head;
+
+        }
+        curr=curr.next;
+    }
+    if(curr.next!=null){
+        curr.next=curr.next.next;
+
+    }
+    return head;
+}
+
+3. optimal approach in python 
+def delete_kth_element(head):
+    if k<=0 or not head:
+        return head
+    if k==1:
+        return head.next
+    prev,curr=None,head
+    count=1
+    while curr and count<k:
+        prev=curr
+        curr=curr.next
+        count+=1
+    if curr;
+        prev.next=curr.next
+    return head
+
+optimal java 
+public static Node deletekthElement(Node head,int k){
+    if(k<=0 || head==null){
+        return head;
+    }
+    if(k==1){
+        return head.next;
+    }
+    Node prev=null, curr=head;
+    int count=1;
+    while(curr != null && count<k){
+        prev=curr;
+        curr=curr.next;
+        count++;
+    }
+    if (curr!=null){
+        prev.next=curr.next;
+    }
+    return head;
+}
         
