@@ -1,0 +1,58 @@
+insertr at kth position in linkedlist 
+brute force approach in python 
+def Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+def insert_at_kth_position(head,k,value):
+    arr=[]
+    temp=head
+    while temp:
+        arr.append(temp.data)
+        temp=temp.next
+    arr.insert(k-1,value)
+    dummy=Node(0)
+    temp=dummy
+    for val in arr:
+        temp.next=Node(val)
+        temp=temp.next
+    return dummy.next
+head=Node(1)
+head.next=Node(2)
+head.next.next=Node(3)
+head=insetrt_data_at_keth_position(3,3,head)
+
+better approach in python 
+def insert_element-at_kth_postion(head,k,value):
+    length=0
+    temp=head
+    while temp:
+        length+=1
+        temp=temp.next
+    if k<1 or k>length+1:
+        return head
+    newNode=Node(value)
+    if k==1:
+        newNode.next=head
+        return newNode
+    temp=head
+    for _ in range(k-2):
+        temp=temp.next
+    newNode.next=temp.next
+    temp.next=newNode
+    return head
+
+optimal approach in python 
+def insert_at_end_optimal(head,k,value):
+    newNode=Node(value)
+    if k==1:
+        newNode.next=head
+        return newNodde
+    temp=head
+    for _ in range(k-2):
+        if not temp:
+            return head
+        temp=temp.next
+    newNode.next=temp.next
+    temp.next=newNode
+    return head
