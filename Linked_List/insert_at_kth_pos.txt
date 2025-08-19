@@ -186,3 +186,54 @@ class SinglyLinkedList{
         list.display(); //
     }
 }
+
+implement in python 
+class Node :
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class SinglyLinkedList:
+    def __init__(self);
+        self.head=None
+    def insert_atEnd(self.data);
+        new_node=Node(datya)
+        if not self.head:
+            self.head=newNode
+            return 
+        temp=self.head
+        while temp.next:
+            temp=temp.next
+        temp.next=newNode
+    def insert_at_beggining(self,data):
+        new_node=Node(data)
+        new_node.next=self.head
+        self.head=newNode 
+    def delete_node(self,key);
+        temp=self.head
+        if temp and temp.data==key:
+            self.head=temp.next
+            return 
+        prev=None
+        while temp and temp.data!=key:
+            prev=temp
+            temp=temp.next
+        if temp==None:
+            return 
+        prev.next=temp.next
+    def display(self):
+        temp=self.head
+        while temp:
+            print(temp.data,end="->")
+            temp=temp.next
+        print("None')
+if __name__=="__main__":
+    s1=SinglyLinkedList()
+    s1.insert-data_at_beggning(30)
+    sll.insert_at_end(20)
+    sll.insert_at_beginning(5)
+    sll.insert_at_end(30)
+    sll.display()  # 5 -> 10 -> 20 -> 30 -> None
+
+    sll.delete_node(20)
+    sll.display()  # 5 
+
