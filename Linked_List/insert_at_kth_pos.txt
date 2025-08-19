@@ -56,3 +56,67 @@ def insert_at_end_optimal(head,k,value):
     newNode.next=temp.next
     temp.next=newNode
     return head
+
+### how to repreesent singlylinkedlist 
+a singly linkedlist is a linear data stucture where each element(called node) contain data and next(Pointer/reference)
+1. data : the value stored in the node 
+2. next : the address reerance of the next node in the list 
+unike array:
+memory is not contiguous 
+insertion deletion is more efficient 
+random access is not allowed 
+
+Node Sturcture 
+in most anguage a node can be represented as a class or Sturcture
+in c
+struct Node{
+    int data;
+    struct Node* next;
+};
+
+in java 
+class Node[
+    int data;
+    Node next;
+    Node(int data){
+        this.data=data;
+        this.next=null;
+    }
+]
+
+in python 
+class Node;
+    def __init__(self,data);
+        self.data=data
+        self.next=None 
+Linked List class 
+
+we usually maintain the head pointer to the first node 
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=null
+
+class SinglyLinkedList:
+    def __init__(self):
+        self.head=None 
+    def insert(self,data);
+        new_node=Node(data)
+        if not self.head:
+            self.head=new-node
+            return 
+        temp=self.head
+        while temp.next;
+            temp=temp.next
+        temp.next=new-node
+    def display(self);
+        temp=self.head
+        while temp;
+            print(temp.data,end="->")
+            temp=temp.next
+        print("NULL")
+s1=SinglyLinkedList()
+s1.insert(10)
+s1.insert(20)
+s1.insert(30)
+s1.display()
