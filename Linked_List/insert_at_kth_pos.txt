@@ -120,3 +120,69 @@ s1.insert(10)
 s1.insert(20)
 s1.insert(30)
 s1.display()
+
+implemet linkedlist in java 
+class Node{
+    int data;
+    Node next;
+    Node(int data){
+        this.data=data;
+        this.next=null;
+    }
+}
+class SinglyLinkedList{
+    Node head;
+    public void insertAtEnd(int data){
+        Node newNode=new Node(data);
+        if head==null{
+            head=newNode;
+            return;
+        }
+        Node temp=head;
+        while(temp.next!=null){
+            temp=temp.next;
+        }
+        temp.next=newNode;
+    }
+    public void insertAtBEggining(int data){
+        Node newNode=new Node(data);
+        newNode.next=head;
+        head=newNode;
+    }
+    public void deleteNode(int key){
+        Node temp=head,prev=null;
+        if(temp!=null && temp.data==key){
+            head=temp.next;
+            return ;
+        }
+        while(temp!=null && temp.data!=key){
+            prev=tmp;
+            temp=temp.next;
+        }
+        if(temp==null){
+            return;
+
+        }
+        prev.next=temp.next;
+    }
+    public void display(){
+        Node temp=head;
+        while(temp!=null){
+            System.out.println(temp.data+"->");
+            temp=temp.next;
+        }
+        System.out.println("null");
+
+    }
+    public static void main(String[] args){
+        SinglyLinkedList list = new SinglyLinkedList();
+        list.insertAtEnd(20);
+        list.insertAtEnd(20);
+        list.insertAtBeginning(5);
+        list.insertAtEnd(30);
+        list.display(); // 5 -> 10 -> 20 -> 30 -> null
+
+        list.deleteNode(20);
+        list.display(); //
+    }
+}
