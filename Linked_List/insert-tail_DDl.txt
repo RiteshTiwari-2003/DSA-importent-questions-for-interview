@@ -27,3 +27,47 @@ head=Node(10)
 head=insert_at_tail(head,30)
 head=insert_at_tail(head,40)
 print_list(head)
+
+insert at kthh postion in doubly linked list 
+
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.prev=None
+        self.next=None
+class DoublyLinkedList:
+    def __init__(self):
+        self.head=None
+    def insert_at_k(self,k,data):
+        new_node=Node(data)
+        if k==1:
+            new_node.next=self.head
+            if self.head:
+                self.head.prev=new_node
+            self.head=new-node
+            return 
+        temp=self.head
+        count=1
+        while temp and count<k-1:
+            temp=temp.next
+            count+=1
+        if not temp:
+            print("Invalid")
+            return 
+        new_node.next=temp.next
+        if temp.next:
+            temp.next.prev=new_node
+        temp.next=new_node
+        new_node.prev=temp
+    def display(self):
+        temp=self.head
+        while temp:
+            print(temp.data,end="<->")
+            temp=temp.next
+        print("None")
+dll=DoublyLinkedList()
+dl.insert_all_k(1,10)
+dll.insert_at_k(2, 20)
+dll.insert_at_k(2, 15)
+dll.insert_at_k(4, 25)
+dll.display()
