@@ -1,0 +1,62 @@
+insert element at the head postion in doubly linked list 
+class Node:
+    def __init__(self):
+        self.data=data
+        self.prev=None
+        self.next=None
+class DoublyLinkedList:
+    def __init__(self):
+        self.head=None
+    def insert_at_head(self,data):
+        new_node=Node(data)
+        if self.head is not None:
+            new_node.next=self.head
+            self.head.prev=new_node
+        self.head=new-node
+    def display(self);
+        temp=self.head
+        while temp:
+            print(temp.data,end="<->")
+            temp=temp.next
+        print("None")
+dll=DoublyLinkedList()
+dll.insert_at_beggging(100)
+dll.display()
+
+in java 
+
+class Node{
+    int data;
+    Node prev, next;
+    Node(int data){
+        this.data=data;
+        this.prev=null;
+        this.next=null;
+    }
+}
+class DoublyLinkedList{
+    Node head;
+    public void insertAtHead(int data){
+        Node newNode=new Node(data);
+        if(head!=null){
+            newNode.next=head;
+            head.prev=newNode;
+        }
+        head=newNode;
+    }
+    public void display(){
+        Node temp=head;
+        while(temp!=null){
+            System.out.println(temp.data+"<->");
+            temp=temp.next;
+        }
+        System.out.println();
+    }
+    public static void main(String[] args){
+        DoublyLinkedList dll=new DoublyLinkedList();
+        dll.insertAtHead(10);
+        dll.insertAtHead(20);
+        dll.insertAtHead(30);
+        dll.display();
+    }
+}
