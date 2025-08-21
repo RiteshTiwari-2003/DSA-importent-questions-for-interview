@@ -48,3 +48,76 @@ dll.display()
 dll.delete_kth_element(3)
 print("After deletion of 3rd node")
 dll.display()
+
+
+java iplementation 
+class Node{
+    int data;
+    Node prev,next;
+    Node(int data){
+        this.data=data;
+        this.prev=null;
+        this.next=null;
+    }
+}
+class DoublyLinkedList{
+    Node head;
+    void append(int data){
+        node newNode=new Node(data);
+        if(head==null){
+            head=newNode;
+            return;
+        }
+        Node temp=head;
+        while(temp.next!=null){
+            temp=temp.next;
+        }
+        temp.next=newNode;
+        newNode.prev=temp;
+    }
+    void delete_kth(int k){
+        if(head==null){
+            return;
+
+        }
+        Node temp=head;
+        int count=1;
+        while(temp != null && count < k){
+            temp=temp.next;
+            count++;
+
+        }
+        if (temp==null){
+            return;
+        }
+        if(temp.prev!=null){
+            temp.prev.next=temp.next;
+        }
+        else{
+            head=temp.next;
+        }
+        if(temp.next!=null){
+            temp.next.prev=temp.prev;
+        }
+    }
+    void display(){
+        Node temp=head;
+        while(temp!=null){
+            System.out.print(temp.data+"<->");
+            temp=temp.next;
+        }
+        System.out.println("null");
+    }
+    public static void main(String[] args){
+        DoublyLinkedList dll=new DoublyLinkedList();
+        dll.append(20);
+        dll.append(30);
+        dll.append(50);
+        dll.append(60);
+        System.out.println("Before Deletion");
+        dll.display();
+        dll.deleteKthElement(3);
+        System.out.println("After Deletion of 3rd Node:");
+        dll.display();
+    }
+}
