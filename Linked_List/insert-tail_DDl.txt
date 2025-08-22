@@ -71,3 +71,60 @@ dll.insert_at_k(2, 20)
 dll.insert_at_k(2, 15)
 dll.insert_at_k(4, 25)
 dll.display()
+
+java implementation 
+class Node{
+    int data;
+    Node prev,next;
+    Node(int data){
+        this.data=data;
+        this.prev=null;
+        this.next=null;
+    }
+}
+class DoublyLinkedList{
+    Node head;
+    void insert_at_kth(int k,int data){
+        Node newNode=new Node(data);
+        if(k==1){
+            newNode.next=head;
+            if head!=null{
+                head.prev=newNode;
+            }
+            head=newNode;
+            return;
+        }
+        Node temp=head;
+        int count=1;
+        while(temp!=null && count<k-1){
+            temp=temp.next;
+            count++;
+        }
+        if(temp==null){
+            System.out.println("Invalid position");
+            return;
+        }
+        newNode.next=temp.next;
+        if(temp.next!=null){
+            temp.next.prev=newNode;
+        }
+        temp.next=newNode;
+        newNode.prev=temp;
+    }
+    void display(){
+        Node temp=head;
+        while(temp!=null){
+            System.out.println(temp.data+"<->");
+            temp=temp.next;
+        }
+        System.out.println("null");
+    }
+    public static void main(String[] args){
+        DoublyLinkedList dll=new DoublyLinkedList();
+        dll.insert(1,10);
+        dll.insert(2,20);
+        dll.insert(2,30);
+        dll.display();
+        
+    }
+}
