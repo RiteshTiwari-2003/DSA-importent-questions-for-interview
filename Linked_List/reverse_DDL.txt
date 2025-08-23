@@ -1,0 +1,125 @@
+reverse the doublylinkedlist in python 
+brute force approach 
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.prev=None
+        self.next=None
+def reverse_ddl_bruteforce(head):
+    if not head:
+        return None
+    arr=[]
+    temp=head
+    while temp:
+        arr.append(temp.data)
+        temp=temp.next
+    new+head=Node(arr[-1])
+    curr=new_head
+    for val in arr[len(arr)-2:-1:-1]:
+        new_node=Node(val)
+        curr.next=new_node
+        new_node.prev=curr
+        curr=new_node
+    return new_head
+
+in java 
+class Node{
+    int data;
+    Node next,prev;
+    Node(int data){
+        this.data=data;
+        this.next=null;
+        this.prev=null;
+    }
+}
+class DoublyLinkedLiust{
+    public Node reverseDDL(Node head){
+        if(head==null) return null;
+        java.util.ArrayList<Integer> arr=new java.util.ArrayList<>();
+        Node temp=head;
+        while(temp!=null){
+            arr.add(temp.data);
+            temp=temp.next;
+        }
+        Node newHead=new Node(arr.get(arr.size()-1));
+        Node curr=head;
+        for(int i=arr.size()-2;i>=0;i--){
+            Node newNode=new Node(arr.get(i));
+            curr.next=newNode;
+            newNode.prev=curr;
+            curr=newNode;
+        }
+        return newHead;
+    }
+}
+
+2. better approach in python 
+def reverse_DDL(head):
+    if not head:
+        return None
+    curr=head
+    last=None
+    while curr:
+        curr.prev,curr.next=curr.next,curr.prev
+        last=curr
+        curr=curr.prev
+    return last
+
+in java better approach 
+class Node{
+    int data;
+    Node prev,next;
+    node(int data){
+        this.data=data;
+        this.prev=null;
+        this.next=null;
+    }
+}
+class reverse_better_DDL{
+    public Node reverse_better_DDL(Node head){
+        if(head==null){
+            return null;
+        }
+        Node curr=head;
+        Node last=null;
+        while(curr!=null){
+            Node temp=curr.next;
+            curr.next=curr.prev;
+            curr.prev=temp;
+            last=curr;
+            curr=curr.prev;
+        }
+        return last;
+    }
+}
+
+3, optimal approah in python same as better approach only difference is that only use one variable curr not like better two variable curr and last 
+def reversed_DDL_optimal(head):
+    if not head:
+        return None
+    curr=head
+    while curr:
+        curr.prev,curr.next=curr.next,curr.prev
+        if curr.prev is None:
+            return curr
+        curr=curr.prev
+
+java optimal 
+public Node reverseDDLOptimal(Node head){
+    if(head==null){
+        return null;
+
+    }
+    Node curr=head;
+    while(curr!=null){
+        Node temp=curr.prev;
+        curr.prev=curr.next;
+        curr.next=temp;
+        if(curr.prev==null){
+            return curr;
+        }
+        curr=curr.prev;
+    }
+    return null;
+    
+}
