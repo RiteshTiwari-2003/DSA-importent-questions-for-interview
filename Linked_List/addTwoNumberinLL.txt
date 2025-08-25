@@ -1,0 +1,31 @@
+### add two number in inked list 
+1. brute force approsach in python 
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+def reverse_list(head):
+    prev=None
+    while head:
+        nxt=head.next
+        head.next=prev
+        prev=head
+        head=nxt
+    return prev
+def add_two_number_brute(l1,l2):
+    l1=reverse_list(l1)
+    l2=reverse_list(l2)
+    def to_number(Node):
+        num=0
+        while node:
+            num=num*10 + node.data
+            node=node.next
+        return num
+    n1,n2=to_number(l1),to_number(l2)
+    total=n1+n2
+    dummy=Node(0)
+    curr=dukmmy
+    for digit in str(total):
+        curr.next=Node(int(digit))
+        curr=curr.next
+    return reverse_list(dummy.next)
